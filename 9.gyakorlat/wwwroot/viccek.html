@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="stilus.css" rel="stylesheet" />
+    <script src="/geek.js"></script>
+</head>
+<body>
+    
+    <script>
+        window.onload = function () {
+            letöltes();
+        }
+
+        var viccek;
+
+        function letöltes() {
+            fetch('/jokes.json')
+                .then(response => response.json())
+                .then(data => letöltésBefejeződött(data)
+                );
+        }
+
+        function letöltésBefejeződött(d) {
+            console.log("Sikeres letöltés")
+            console.log(d)
+            viccek = d;
+        }
+
+
+    </script>
+
+</body>
+</html>
