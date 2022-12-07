@@ -2,13 +2,13 @@
 var questionsInHotList = 3; //Ez majd 7 lesz, teszteléshez jobb a 3.
 var displayedQuestion;      //A hotList-ből éppen ez a kérdés van kint
 var numberOfQuestions;      //Kérdések száma a teljes adatbázisban
-var nextQuestion = 1;       //A következő kérdés száma a teljes listában
-var hotList = [];
+var nextQuestion = 1;
 var questionsInHotList = 3; //Ez majd 7 lesz, teszteléshez jobb a 3. 
-
+var questionNumber = 1;
+var destination=0;
 
 function Kerdesmegjelenites() {
-        let kerdes = hotList[displayedQuestion].question;
+        let kerdes = hotList;
         console.log(kerdes);
         document.getElementById("kérdés_szöveg").innerText = kerdes.question1
         document.getElementById("válasz1").innerText = kerdes.answer1
@@ -31,19 +31,18 @@ function Kerdesmegjelenites() {
     function kerdesBetoltes(id) {
         fetch(`/questions/${questionNumber}`)
             .then(
-                result => {
-                    if (!result.ok) {
+                response => {
+                    if (!response.ok) {
                         console.error(`Hibás letöltés: ${response.status}`)
                     }
                     else {
-                        return result.json()
+                        return response.json()
                     }
                 }
             )
             .then(
                 q => {
-                    hotList[destination].question = q;
-                    hotList[destination].goodAnswers = 0;
+                    hotList = q;
                     console.log(`A ${questionNumber}. kérdés letöltve a hot list ${destination}. helyére`)
                     if (displayedQuestion == undefined && destination == 0) { //!!!!!!!!!!!!!
                         displayedQuestion = 0;
