@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="hetedik.js"></script>
+    
     <title></title>
 </head>
 <body>
@@ -17,14 +17,14 @@
                 height: 100%;
             }
 
-            div{
-                margin:10px;
+            div {
+                margin: 10px;
                 border: 1px solid fuchsia
             }
 
             #külső {
                 height: 100%;
-                display:flex;
+                display: flex;
                 flex-direction: column;
             }
 
@@ -34,7 +34,7 @@
             #középső {
                 display: flex;
                 flex-direction: row;
-                flex-grow:1
+                flex-grow: 1
             }
 
             #válaszok {
@@ -69,18 +69,19 @@
 
         <div id="középső">
             <div id="válaszok">
-                <div id="válasz1" class="kerdes kattintható">Válasz 1</div>
-                <div id="válasz2" class="kerdes kattintható">Válasz 2</div>
-                <div id="válasz3" class="kerdes kattintható">Válasz 3</div>
+                <div id="válasz1" onclick="valasztas(1)" class="kerdes kattintható">Válasz 1</div>
+                <div id="válasz2" onclick="valasztas(2)" class="kerdes kattintható jó">Válasz 2</div>
+                <div id="válasz3" onclick="valasztas(3)" class="kerdes kattintható rossz">Válasz 3</div>
             </div>
             <div id="kép">
                 <img id="kép1" src="https://kzgzdiag426.blob.core.windows.net/netcore/teszt-0050.jpg" />
             </div>
         </div>
         <div id="vezérlő">
-            <div class="gomb kattintható">Vissza</div>
-            <div class="gomb kattintható">Előre</div>
+            <div id="vissza_gomb" class="gomb kattintható">Vissza</div>
+            <div id="előre_gomb" class="gomb kattintható">Előre</div>
         </div>
     </div>
+    <script src="hetedik.js"></script>
 </body>
 </html>
